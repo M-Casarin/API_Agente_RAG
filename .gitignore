@@ -1,0 +1,71 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Bytecode de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Archivos de configuración local
+.env
+*.env
+
+# Datos sensibles y temporales
+credentials/
+*.sqlite3
+*.db
+*.log
+
+# Archivos generados de datos
+data/
+models/
+*.npy
+*.jsonl
+*.faiss
+*.pkl
+
+# Archivos de FAISS y embeddings
+data/faiss_index/
+*.index
+*.hnsw
+
+# Metadata y caché
+*.cache/
+*.DS_Store
+.cache/
+.ipynb_checkpoints/
+
+# Entornos de desarrollo
+.vscode/
+.idea/
+
+# Salidas de Docker
+*.bak
+*.pid
+*.tar
+*.sock
+
+# Archivos del sistema
+Thumbs.db
+.DS_Store
+
+# Archivos de build
+dist/
+build/
+*.egg-info/
+
+# node_modules si llegas a usar frontend
+node_modules/
