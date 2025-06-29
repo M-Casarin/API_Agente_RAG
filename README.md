@@ -101,7 +101,7 @@ llm-gkc/
    GOOGLE_VERTEX_ENDPOINT_ID=tu_endpoint_id
    ```
 
-5. **Arrancar Emeth**:
+5. **Arrancar**:
 
    * **CLI de prueba**:
 
@@ -135,6 +135,23 @@ llm-gkc/
 
     - Chunker, Resultante: chunk.json
     ```bash
+    uv run python src/ingestion/chunker.py   
+    ```
 
 
+
+8. **Fase 2: Embeddings e indexacion semántica**
+    Objetivo: Convertir chunk.json en vectores numericos semanticos usando un modelo de embeddings y almacenarlos en undice FAISS para busquedas eficientes por similitud. 
+
+    Archivos Resultantes de la Fase 2: 
+        ├── embeddings.npy  (Lista de vectores)
+        ├── faiss_index/ 
+            ├── index.false  (Indice FAISS serializado)
+            ├── index_meta.json #  (Metadatos paralelos a los vecotes: source, page, subchunk, etc)
+
+
+    - Embedding, por cada chunk en chunks se ha de hacer el embedding: 
+    
+    ```bash
+    uv run python src/indexer/embed.py
     ```

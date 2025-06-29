@@ -48,7 +48,7 @@ def merge_chunks(raw_chunks: list[dict]) -> list[dict]:
 
         else: 
             finaL_chunks.append(
-                {"content": content.strip()}.update(metadata)
+                fragmento
             )
 
     return finaL_chunks
@@ -57,6 +57,7 @@ def merge_chunks(raw_chunks: list[dict]) -> list[dict]:
 
 
 def main():
+
     print("Cargando chunks crudos desde 'data/chunks_raw.json'")
     with open("data/chunks_raw.json", "r", encoding="utf-8") as f:
         raw_chunks = json.load(f)
@@ -69,7 +70,7 @@ def main():
     with open("data/chunks.json", "w", encoding="utf-8") as f:
         json.dump(clean_chunks, f, indent=2, ensure_ascii=False)
 
-    print("Guardado en 'data/chunks.json'")
+    print("├── Guardado en 'data/chunks.json'")
 
 
 if __name__ == "__main__":

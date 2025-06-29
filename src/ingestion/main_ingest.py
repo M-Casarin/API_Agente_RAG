@@ -30,6 +30,6 @@ if __name__ == '__main__':
             ensure_ascii=False
         )
 
-    print(f"Chunks han sido guardados en {output_path.resolve()}")
+    print(f"├── Chunks han sido guardados en {output_path.resolve()}")
     print(Fr.RESET, " ")
     
