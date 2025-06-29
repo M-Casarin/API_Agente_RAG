@@ -123,15 +123,18 @@ llm-gkc/
    export LLM_PROVIDER=azure  # o "google"
    ```
 
----
+7. **Fase 1: Ingestion y Procesamiento de archivos**
+    - Subir todos los archivos que necesarios a docs/
 
-## Próximos Pasos
 
-1. **Fase 1: Ingestión y Chunking** – extraer texto de `docs/` y generar `data/chunks.json`.
-2. **Fase 2: Indexación semántica** – producir `data/embeddings.npy` y construir índice FAISS.
-3. **Fase 3: Mejora de prompt** – iterar plantillas y parámetros.
-4. **Fase 4: Despliegue** – contenerizar con Docker y habilitar CI/CD.
+    - Ingestion, Resultante: chunk_raw.json
+    ```bash
+    uv run python src/ingestion/main_ingest.py
+    ``` 
 
----
 
-**Emeth** – Tu asistente LLM de confianza para el sector asegurador. ¡Manos a la obra!
+    - Chunker, Resultante: chunk.json
+    ```bash
+
+
+    ```

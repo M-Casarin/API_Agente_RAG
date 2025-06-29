@@ -69,3 +69,15 @@ build/
 
 # node_modules si llegas a usar frontend
 node_modules/
+
+
+# Extension de archivos para la ingestion
+*.pdf 
+*.png
+*.txt 
+*.docx 
+
+# Jupyter Notebooks 
+*.ipynb
+
+

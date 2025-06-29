@@ -1,0 +1,12 @@
+Agente_IP/
+├── docs/              ← manuales y guías en bruto
+├── data/              ← aquí irán chunks, embeddings, índices
+├── credentials/       ← credenciales (API keys, JSON de GCP)
+├── src/
+│   ├── ingestion/     ← stubs o scripts para extracción + chunking
+│   ├── indexer/       ← stubs o scripts para embeddings + FAISS
+│   ├── rag/           ← lógica RAG y CLI
+│   ├── api/           ← FastAPI y autenticación
+│   └── llm_backends.py← multi-provider call_llm
+├── .env               ← configuraciones de entorno
+└── Dockerfile, etc.
