@@ -172,7 +172,13 @@ llm-gkc/
 
     El sistema buscará los fragmentos (chunks) más relevantes del índice semántico, construirá un prompt con ese contexto y se lo enviará a un modelo de lenguaje (Azure OpenAI, Google o OpenAI) para obtener una respuesta precisa.
 
+    ```bash
+    uv run python src/rag/main_retrieve.py  
+    ```
 
 
 
 
+
+## Arranque Directo: 
+.\run_rag_pipeline.bat

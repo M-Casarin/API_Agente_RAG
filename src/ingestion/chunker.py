@@ -31,7 +31,6 @@ def merge_chunks(raw_chunks: list[dict]) -> list[dict]:
     finaL_chunks = []
 
     for fragmento in raw_chunks: 
-        print(fragmento)
         content = fragmento["content"] # obteenr el fragmento del chunk 
         # Recuperar los otros dos metadatos que no son el contenido del chunk 
         metadata = {
