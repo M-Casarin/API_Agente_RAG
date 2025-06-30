@@ -140,11 +140,13 @@ llm-gkc/
 8. **Fase 2: Embeddings e indexacion semántica**
     Objetivo: Convertir chunk.json en vectores numericos semanticos usando un modelo de embeddings y almacenarlos en undice FAISS para busquedas eficientes por similitud. 
 
+    ```bash
     Archivos Resultantes de la Fase 2: 
         ├── embeddings.npy  (Lista de vectores)
         ├── faiss_index/ 
             ├── index.false  (Indice FAISS serializado)
             ├── index_meta.json #  (Metadatos paralelos a los vecotes: source, page, subchunk, etc)
+    ```
 
 
     - Embedding, por cada chunk en chunks se ha de hacer el embedding: 
@@ -170,4 +172,3 @@ llm-gkc/
 9. **Fase 3: RAG (Retrieval-Augmented Generation)**
     Objetivo: Consultar preguntas usando contexto real de los documentos indexados. 
 
-    
