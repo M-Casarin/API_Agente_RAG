@@ -193,7 +193,15 @@ RESPUESTA: No, basta con cumplir al menos una.
 
 ---
 
+## Arranque Directo: 
+Actualizar los chunks y embeddings (Ejecutar cuando se han cargado nuevos archivos en docs/) 
 
+```bash 
+.\update_embeddings..bat
+```
 
 ## Arranque Directo: 
+
+```bash 
 .\run_rag_pipeline.bat
+```
