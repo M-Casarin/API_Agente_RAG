@@ -57,27 +57,21 @@ llm-gkc/
 
 ## Configuración y Arranque con [uv](https://github.com/astral-sh/uv)
 
-1. **Clonar el repositorio**:
 
-   ```bash
-   git clone <tu-repo-url> llm-gkc
-   cd llm-gkc
-   ```
-
-2. **Crear y activar el entorno con `uv`**:
+1. **Crear y activar el entorno con `uv`**:
 
    ```bash
    uv venv .venv
    source .venv/bin/activate  # Windows: .\.venv\Scripts\Activate.ps1
    ```
 
-3. **Instalar dependencias**:
+2. **Instalar dependencias**:
 
    ```bash
    uv pip install -r requirements.txt
    ```
 
-4. **Configurar variables de entorno**: crea un archivo `.env` en la raíz del proyecto con este contenido:
+3. **Configurar variables de entorno**: crea un archivo `.env` en la raíz del proyecto con este contenido:
 
    ```dotenv
    # Proveedor LLM (openai, azure o google)
@@ -102,7 +96,7 @@ llm-gkc/
    GOOGLE_VERTEX_ENDPOINT_ID=tu_endpoint_id
    ```
 
-5. **Arrancar**:
+4. **Arrancar**:
 
    * **CLI de prueba**:
 
@@ -116,7 +110,7 @@ llm-gkc/
      uv run uvicorn src.api.app:app --reload --host 0.0.0.0 --port 8000
      ```
 
-6. **Cambiar proveedor LLM (opcional)**:
+5. **Cambiar proveedor LLM (opcional)**:
 
    Antes de iniciar cualquier servicio, puedes definir el proveedor en terminal:
 
@@ -124,7 +118,7 @@ llm-gkc/
    export LLM_PROVIDER=azure  # o "google"
    ```
 
-7. **Fase 1: Ingestion y Procesamiento de archivos**
+6. **Fase 1: Ingestion y Procesamiento de archivos**
     - Subir todos los archivos que necesarios a docs/
 
 
@@ -141,7 +135,7 @@ llm-gkc/
 
 
 
-8. **Fase 2: Embeddings e indexacion semántica**
+7. **Fase 2: Embeddings e indexacion semántica**
     Objetivo: Convertir chunk.json en vectores numericos semanticos usando un modelo de embeddings y almacenarlos en undice FAISS para busquedas eficientes por similitud. 
 
     ```bash
@@ -173,7 +167,7 @@ llm-gkc/
 
 
 
-9. **Fase 3: RAG (Retrieval-Augmented Generation)**
+8. **Fase 3: RAG (Retrieval-Augmented Generation)**
     Objetivo: Construir el sistema de RAG (Retrieval-Augmented Generation), que responde preguntas basadas en conocimiento externo y embebido (tus documentos) en vez de solo depender del conocimiento entrenado del LLM.
 
     El sistema buscará los fragmentos (chunks) más relevantes del índice semántico, construirá un prompt con ese contexto y se lo enviará a un modelo de lenguaje (Azure OpenAI, Google o OpenAI) para obtener una respuesta precisa.
