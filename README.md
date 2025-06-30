@@ -151,7 +151,16 @@ llm-gkc/
 
 
     - Embedding, por cada chunk en chunks se ha de hacer el embedding: 
-    
+
     ```bash
     uv run python src/indexer/embed.py
+    ```
+
+    Resultante: 
+
+
+    - Indexacion. Tomara los embeddings generados en el paso anterior y le asignara un indice unico basado en algun algoritmo, en este caso es el FlatL2 que es tomar la distancia euclideana de cada vector. 
+
+    ```bash
+    uv run python src/indexer/faiss_indexer.py
     ```
