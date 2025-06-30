@@ -50,7 +50,6 @@ llm-gkc/
     ├── indexer/            # Generación de embeddings y FAISS
     ├── rag/                # Lógica RAG y CLI
     ├── api/                # FastAPI y autenticación
-    └── llm_backends.py     # Abstracción multi-provider LLM
 ```
 
 ---
