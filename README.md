@@ -86,10 +86,14 @@ llm-gkc/
    # OpenAI
    OPENAI_API_KEY=tu_openai_api_key
 
-   # Azure OpenAI
-   AZURE_OPENAI_ENDPOINT=https://<tu-recurso>.openai.azure.com/
-   AZURE_OPENAI_KEY=tu_azure_key
-   AZURE_OPENAI_DEPLOYMENT_NAME=
+    # Azure
+    AZURE_OPENAI_ENDPOINT=
+    AZURE_OPENAI_API_KEY=
+    AZURE_OPENAI_API_VERSION=
+    AZURE_OPENAI_RESOURCE_NAME=
+    AZURE_OPENAI_DEPLOYMENT_EMBEDDING_NAME=text-embedding-3-small
+    AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4o-mini-2
+
 
    # Google Vertex AI
    GOOGLE_APPLICATION_CREDENTIALS=credentials/google-service-account.json
@@ -142,6 +146,7 @@ llm-gkc/
 
     ```bash
     Archivos Resultantes de la Fase 2: 
+        data/
         ├── embeddings.npy  (Lista de vectores)
         ├── faiss_index/ 
             ├── index.false  (Indice FAISS serializado)
@@ -156,7 +161,6 @@ llm-gkc/
     ```
         Resultante: /data/embeddings.npy   # Matriz vectorial
 
-
     - Indexacion. Tomara los embeddings generados en el paso anterior y le asignara un indice unico basado en algun algoritmo, en este caso es el FlatL2 que es tomar la distancia euclideana de cada vector. 
 
     ```bash
@@ -170,5 +174,11 @@ llm-gkc/
 
 
 9. **Fase 3: RAG (Retrieval-Augmented Generation)**
-    Objetivo: Consultar preguntas usando contexto real de los documentos indexados. 
+    Objetivo: Construir el sistema de RAG (Retrieval-Augmented Generation), que responde preguntas basadas en conocimiento externo y embebido (tus documentos) en vez de solo depender del conocimiento entrenado del LLM.
+
+    El sistema buscará los fragmentos (chunks) más relevantes del índice semántico, construirá un prompt con ese contexto y se lo enviará a un modelo de lenguaje (Azure OpenAI, Google o OpenAI) para obtener una respuesta precisa.
+
+
+
+
 

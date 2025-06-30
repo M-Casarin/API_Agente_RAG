@@ -83,7 +83,7 @@ if LLM_PROVIDER == "azure":
     def get_embedding(text:str) -> list[float]: 
         response = openai.embeddings.create(
             input=text, 
-            model=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME")
+            model=os.getenv("AZURE_OPENAI_DEPLOYMENT_EMBEDDING_NAME")
         )
         return response.data[0].embedding
     
