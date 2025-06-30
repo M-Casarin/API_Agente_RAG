@@ -55,8 +55,8 @@ class TextExtractor:
                     })
         return chunks
     
+    
     def _extract_docx(self) -> list[dict]:
-
         chunks = []
         doc = docx.Document(self.file_path)
 

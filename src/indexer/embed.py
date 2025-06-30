@@ -47,11 +47,9 @@ def load_chunks() -> list[dict]:
 # Funcion de embeddings que llama al provedor llm 
 # ==============================
 
-# En development usamos google vertexai 
 load_dotenv()
-LLM_PROVIDER = os.getenv("LLM_PROVIDER", "openai")
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "azure")
 
-print(Fr.RED + LLM_PROVIDER + Fr.RESET)
 if LLM_PROVIDER == "google": 
 
     vertexai.init(
@@ -72,8 +70,6 @@ if LLM_PROVIDER == "google":
     
 
 if LLM_PROVIDER == "azure": 
-    print(Fr.RED, "Cargando el embedding para azure" + Fr.RESET)
-
 
     openai.api_type = "azure"
     openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
@@ -123,7 +119,7 @@ def generate_embeddings():
             "content_preview": texto[:80] + "..." if len(texto) > 80 else texto
         })
 
-        if i % 10 == 0:
+        if i % 100 == 0:
             print(f"[✓] Procesados {i} chunks...")
 
     print(Fr.GREEN + f"├── Total de embeddings generados: {len(embeddings)}\n" + Fr.RESET)
@@ -133,8 +129,8 @@ def generate_embeddings():
     with open(META_PATH, "w", encoding="utf-8") as f:
         json.dump(metadatos, f, ensure_ascii=False, indent=2)
 
-    print(f"[↓] Guardado: {EMBEDDINGS_PATH.resolve()}")
-    print(f"[↓] Guardado: {META_PATH.resolve()}")
+    print(f"[↓] Embeddings Guardados en: {EMBEDDINGS_PATH.resolve()}")
+    print(f"[↓] Index de Metadatos Guardados en: {META_PATH.resolve()}")
 
 
 
