@@ -24,7 +24,7 @@ import json
 import textwrap 
 
 # Fijese la cota maxima de caracteres por chunk 
-MAX_CHARS = 800
+MAX_CHARS = 1500
 
 def merge_chunks(raw_chunks: list[dict]) -> list[dict]: 
 

@@ -176,6 +176,22 @@ llm-gkc/
     ```
 
 
+## Recomendaciones.
+
+- Estructura ideal para crear los embeddings. El siguiente formato se considera el ideal realizar el chunking y el embedding 
+
+
+[SECCION]: Póliza Primordial
+
+PREGUNTA: ¿Qué requisitos se requiere para que cuente como Primordial?
+RESPUESTA: Se considera que un agente ha colocado una póliza Primordial válida cuando...
+
+---
+
+PREGUNTA: ¿Requiero cumplir las 3 condiciones?
+RESPUESTA: No, basta con cumplir al menos una.
+
+---
 
 
 

@@ -23,7 +23,7 @@ from src.rag.load_faiss_index import load_faiss_index
 # -----------------------------
 
 
-def search_similar_chunks(query: str, k: int = 8) -> list[dict]: 
+def search_similar_chunks(query: str, k: int = 5) -> list[dict]: 
 
     if not query.strip(): 
         raise ValueError("[Error.search_similar_chunks] la consulta esta vacia")

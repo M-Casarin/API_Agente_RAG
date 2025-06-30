@@ -29,7 +29,7 @@ if LLM_PROVIDER == "azure":
     DEPLOYMENT_NAME = "gpt-4o-mini-2" 
     
     def ask_llm(prompt: str) -> str:
-        print(Fr.YELLOW + "[✓] Llamando al modelo de Azure OpenAI..." + Fr.RESET)
+        print(Fr.LIGHTBLACK_EX + "[✓] Llamando al modelo de Azure OpenAI..." + Fr.RESET)
 
         response = client.chat.completions.create(
             model=DEPLOYMENT_NAME,
