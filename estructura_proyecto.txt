@@ -10,3 +10,74 @@ Agente_IP/
 │   └── llm_backends.py← multi-provider call_llm
 ├── .env               ← configuraciones de entorno
 └── Dockerfile, etc.
+
+
+
+                ┌────────────────────────────┐
+                │    [ FASE 1: Ingestión ]   │
+                └────────────────────────────┘
+                        │
+                        ▼
+      ┌─────────────────────────────────────────┐
+      │ 1. Carga y extracción de documentos     │
+      │    - src/ingestion/text_extractor.py   │
+      │    - output: chunks_raw.json           │
+      └─────────────────────────────────────────┘
+                        │
+                        ▼
+      ┌─────────────────────────────────────────┐
+      │ 2. Procesamiento y limpieza de chunks   │
+      │    - src/ingestion/chunker.py          │
+      │    - output: chunks.json               │
+      └─────────────────────────────────────────┘
+
+
+                ┌────────────────────────────┐
+                │ [ FASE 2: Embeddings e     │
+                │     Indexación Semántica ] │
+                └────────────────────────────┘
+                        │
+                        ▼
+      ┌─────────────────────────────────────────┐
+      │ 3. Generación de embeddings             │
+      │    - src/indexer/embed.py               │
+      │    - output: embeddings.npy             │
+      │    - output: index_meta.json            │
+      └─────────────────────────────────────────┘
+                        │
+                        ▼
+      ┌─────────────────────────────────────────┐
+      │ 4. Indexación semántica con FAISS       │
+      │    - src/indexer/faiss_indexer.py       │
+      │    - output: faiss_index.index          │
+      └─────────────────────────────────────────┘
+
+
+                ┌────────────────────────────┐
+                │     [ FASE 3: RAG ]        │
+                └────────────────────────────┘
+                        │
+                        ▼
+      ┌─────────────────────────────────────────┐
+      │ 5. Recuperación semántica (Retriever)   │
+      │    - src/rag/retriever.py               │
+      └─────────────────────────────────────────┘
+                        │
+                        ▼
+      ┌─────────────────────────────────────────┐
+      │ 6. Construcción del prompt contextual   │
+      │    - src/rag/prompt_builder.py          │
+      └─────────────────────────────────────────┘
+                        │
+                        ▼
+      ┌─────────────────────────────────────────┐
+      │ 7. Llamada al LLM                       │
+      │    - src/rag/chat_llm.py                │
+      └─────────────────────────────────────────┘
+                        │
+                        ▼
+      ┌─────────────────────────────────────────┐
+      │ 8. CLI o API                            │
+      │    - src/rag/chat_cli.py                │
+      │    - api/chat.py (si deseas)            │
+      └─────────────────────────────────────────┘

@@ -1,7 +1,4 @@
-## Agente IP 
-
-Agente LLM de Individual Privado. 
-**Grupo KC Agente de Seguros**. 
+# Agente RAG 
 
 
 ---
@@ -92,7 +89,7 @@ llm-gkc/
    # Azure OpenAI
    AZURE_OPENAI_ENDPOINT=https://<tu-recurso>.openai.azure.com/
    AZURE_OPENAI_KEY=tu_azure_key
-   AZURE_OPENAI_DEPLOYMENT_NAME=emeth-deploy
+   AZURE_OPENAI_DEPLOYMENT_NAME=
 
    # Google Vertex AI
    GOOGLE_APPLICATION_CREDENTIALS=credentials/google-service-account.json
@@ -155,8 +152,7 @@ llm-gkc/
     ```bash
     uv run python src/indexer/embed.py
     ```
-
-    Resultante: 
+        Resultante: /data/embeddings.npy   # Matriz vectorial
 
 
     - Indexacion. Tomara los embeddings generados en el paso anterior y le asignara un indice unico basado en algun algoritmo, en este caso es el FlatL2 que es tomar la distancia euclideana de cada vector. 
@@ -164,3 +160,14 @@ llm-gkc/
     ```bash
     uv run python src/indexer/faiss_indexer.py
     ```
+        Resultante: 
+            ├── faiss_index/ 
+                ├── index.false  (Indice FAISS serializado)
+                ├── index_meta.json #  (Metadatos paralelos a los vecotes: source, page, subchunk, etc)
+
+
+
+9. **Fase 3: RAG (Retrieval-Augmented Generation)**
+    Objetivo: Consultar preguntas usando contexto real de los documentos indexados. 
+
+    
