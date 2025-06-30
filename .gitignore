@@ -80,4 +80,7 @@ node_modules/
 # Jupyter Notebooks 
 *.ipynb
 
+# Credenciales 
+*.json 
+
 
