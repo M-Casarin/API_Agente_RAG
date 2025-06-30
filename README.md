@@ -180,6 +180,7 @@ llm-gkc/
 
 - Estructura ideal para crear los embeddings. El siguiente formato se considera el ideal realizar el chunking y el embedding 
 
+```yaml 
 
 [SECCION]: Póliza Primordial
 
@@ -192,6 +193,10 @@ PREGUNTA: ¿Requiero cumplir las 3 condiciones?
 RESPUESTA: No, basta con cumplir al menos una.
 
 ---
+...
+
+```
+
 
 ## Arranque Directo: 
 Actualizar los chunks y embeddings (Ejecutar cuando se han cargado nuevos archivos en docs/) 
