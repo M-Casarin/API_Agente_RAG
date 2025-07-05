@@ -24,7 +24,7 @@ import json
 import textwrap 
 
 # Fijese la cota maxima de caracteres por chunk 
-MAX_CHARS = 1500
+MAX_CHARS = 1800
 
 def merge_chunks(raw_chunks: list[dict]) -> list[dict]: 
 
@@ -53,8 +53,6 @@ def merge_chunks(raw_chunks: list[dict]) -> list[dict]:
     return finaL_chunks
 
 
-
-
 def main():
 
     print("Cargando chunks crudos desde 'data/chunks_raw.json'")
@@ -63,7 +61,7 @@ def main():
 
     print(f"Procesando {len(raw_chunks)} fragmentos...")
     clean_chunks = merge_chunks(raw_chunks)
-
+ 
     print(f"{len(clean_chunks)} chunks finales generados.")
     os.makedirs("data", exist_ok=True)
     with open("data/chunks.json", "w", encoding="utf-8") as f:

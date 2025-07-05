@@ -40,9 +40,7 @@ class TextExtractor:
 
 
     def _extract_pdf(self) -> list[dict]: 
-        # Cada pagina sera a priori un chunk 
         chunks = []
-
         with pdfplumber.open(self.file_path) as pdf: 
             for i, page in enumerate(pdf.pages, start=1):
                 texto = page.extract_text()
@@ -55,7 +53,7 @@ class TextExtractor:
                     })
         return chunks
     
-    
+
     def _extract_docx(self) -> list[dict]:
         chunks = []
         doc = docx.Document(self.file_path)
@@ -72,7 +70,6 @@ class TextExtractor:
     
     def _extract_txt(self) -> list[dict]: 
         
-        # Aqui es muy directo todo 
         with open(self.file_path, "r", encoding="utf-8") as file: 
             lineas = file.readlines()
 

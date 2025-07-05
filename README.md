@@ -202,7 +202,7 @@ RESPUESTA: No, basta con cumplir al menos una.
 Actualizar los chunks y embeddings (Ejecutar cuando se han cargado nuevos archivos en docs/) 
 
 ```bash 
-.\update_embeddings..bat
+.\update_embeddings.bat
 ```
 
 ## Arranque Directo: 
