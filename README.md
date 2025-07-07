@@ -6,8 +6,8 @@
 ## Alcance del Proyecto
 
 * **Consultas de lógica de negocio**: descripción de procesos internos, flujos de trabajo y pasos alternativos.
-* **Glosario interactivo**: definiciones de términos y acrónimos del sector asegurador.
-* **Cálculos y fórmulas**: explicación de cómo se calculan primas, comisiones y reservas.
+* **Glosario interactivo**: definiciones de términos y acrónimos.
+* **Cálculos y fórmulas**.
 * **FAQ dinámico**: preguntas frecuentes actualizadas y sugerencia de documentos relevantes.
 * **Multi-proveedor LLM**: integración con OpenAI, Azure OpenAI y Google Vertex AI (configurable).
 * **API REST (FastAPI)**: punto de acceso para orquestar recuperación de contexto y llamada al LLM.
@@ -184,8 +184,8 @@ llm-gkc/
 
 [SECCION]: Póliza Primordial
 
-PREGUNTA: ¿Qué requisitos se requiere para que cuente como Primordial?
-RESPUESTA: Se considera que un agente ha colocado una póliza Primordial válida cuando...
+PREGUNTA: ¿Qué requisitos se requiere para que cuente?
+RESPUESTA: Se considera que ...
 
 ---
 
