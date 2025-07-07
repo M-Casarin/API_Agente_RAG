@@ -84,3 +84,8 @@ node_modules/
 *.json 
 
 
+# embeddings 
+*.npy 
+
+# faiss index 
+*.faiss
