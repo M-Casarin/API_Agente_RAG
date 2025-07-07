@@ -12,17 +12,15 @@ Objetivo del modulo:
 
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import json 
 from pathlib import Path
 from colorama import Fore as Fr
 from dotenv import load_dotenv
 import numpy as np 
-
 # GOOGLE llm 
 from vertexai.language_models import TextEmbeddingModel
 import vertexai
-
 # OpenAi 
 import openai
 
@@ -60,7 +58,6 @@ if LLM_PROVIDER == "google":
     # Hard codeando para forzar a usar el modelo del embedding 
     embedding_model = TextEmbeddingModel.from_pretrained("gemini-embedding-001")
 
-
     def get_embedding(text: str) -> list[float]: 
 
         text = text.strip()
@@ -94,7 +91,7 @@ META_PATH = Path("data/faiss_index/index_meta.json")
 META_PATH.parent.mkdir(parents=True, exist_ok=True)
 
 def generate_embeddings():
-    print(Fr.YELLOW + "[...] Generando embeddings para los chunks..." + Fr.RESET)
+    print(Fr.LIGHTWHITE_EX + "[...] Generando embeddings para los chunks..." + Fr.RESET)
     
     chunks = load_chunks()
     embeddings = []
@@ -122,15 +119,15 @@ def generate_embeddings():
         if i % 100 == 0:
             print(f"[✓] Procesados {i} chunks...")
 
-    print(Fr.GREEN + f"├── Total de embeddings generados: {len(embeddings)}\n" + Fr.RESET)
+    print(Fr.LIGHTBLACK_EX + f"├── Total de embeddings generados: {len(embeddings)}\n" + Fr.RESET)
 
     # Guardar .npy y metadatos
     np.save(EMBEDDINGS_PATH, np.array(embeddings))
     with open(META_PATH, "w", encoding="utf-8") as f:
         json.dump(metadatos, f, ensure_ascii=False, indent=2)
 
-    print(f"[↓] Embeddings Guardados en: {EMBEDDINGS_PATH.resolve()}")
-    print(f"[↓] Index de Metadatos Guardados en: {META_PATH.resolve()}")
+    print(Fr.LIGHTBLACK_EX +f"[|] Embeddings Guardados en: {EMBEDDINGS_PATH.resolve()}")
+    print(Fr.LIGHTBLACK_EX +f"[|] Index de Metadatos Guardados en: {META_PATH.resolve()}"+ Fr.RESET)
 
 
 

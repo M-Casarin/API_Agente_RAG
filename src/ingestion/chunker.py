@@ -19,14 +19,16 @@ el fragmento con metadatos.
 
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import json 
 import textwrap 
+from utils.Logger import Logger
+from colorama import Fore as Fr
 
 # Fijese la cota maxima de caracteres por chunk 
-MAX_CHARS = 1800
+MAX_CHARS = 1500
 
-def merge_chunks(raw_chunks: list[dict]) -> list[dict]: 
+def merge_chunks(raw_chunks: list[dict], max_chars: int=MAX_CHARS) -> list[dict]: 
 
     finaL_chunks = []
 
@@ -54,21 +56,22 @@ def merge_chunks(raw_chunks: list[dict]) -> list[dict]:
 
 
 def main():
-
-    print("Cargando chunks crudos desde 'data/chunks_raw.json'")
+    # Carga de chunks crudos 
+    Logger.info("Cargando chunks crudos desde 'data/chunks_raw.json'")
     with open("data/chunks_raw.json", "r", encoding="utf-8") as f:
         raw_chunks = json.load(f)
 
-    print(f"Procesando {len(raw_chunks)} fragmentos...")
+    # Procesa chunks y genera los subchunks 
+    Logger.info(f"Procesando {len(raw_chunks)} fragmentos...")
     clean_chunks = merge_chunks(raw_chunks)
- 
-    print(f"{len(clean_chunks)} chunks finales generados.")
+    Logger.info(f"{len(clean_chunks)} chunks finales generados.")
     os.makedirs("data", exist_ok=True)
+
+    # Carga los chunks finales en data
     with open("data/chunks.json", "w", encoding="utf-8") as f:
         json.dump(clean_chunks, f, indent=2, ensure_ascii=False)
 
-    print("├── Guardado en 'data/chunks.json'")
-
+    print(Fr.LIGHTBLACK_EX, "├── Guardado en 'data/chunks.json'", Fr)
 
 if __name__ == "__main__":
     main()

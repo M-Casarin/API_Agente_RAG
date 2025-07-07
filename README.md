@@ -1,4 +1,4 @@
-# Agente RAG 
+# Agente RAG LLM 
 
 
 ---
@@ -11,7 +11,7 @@
 * **FAQ dinámico**: preguntas frecuentes actualizadas y sugerencia de documentos relevantes.
 * **Multi-proveedor LLM**: integración con OpenAI, Azure OpenAI y Google Vertex AI (configurable).
 * **API REST (FastAPI)**: punto de acceso para orquestar recuperación de contexto y llamada al LLM.
-* **Canales de mensajería**: integración con Slack/Teams o WhatsApp Business.
+* **Canales de mensajería**: WhatsApp.
 
 **Fuera de alcance:**
 
@@ -97,16 +97,16 @@ llm-gkc/
 
 4. **Arrancar**:
 
-   * **CLI de prueba**:
+   * **Prueba del chat sin API**:
 
      ```bash
-     uv run python -m src.rag.chat_cli
+    uv run python  src/rag/main_retrieve.py     
      ```
 
    * **API REST con Uvicorn**:
 
      ```bash
-     uv run uvicorn src.api.app:app --reload --host 0.0.0.0 --port 8000
+     uv run uvicorn src.api.main:app --reload --host 0.0.0.0 --port 8000
      ```
 
 5. **Cambiar proveedor LLM (opcional)**:
@@ -198,14 +198,14 @@ RESPUESTA: No, basta con cumplir al menos una.
 ```
 
 
-## Arranque Directo: 
+## Actualizar los chunks y embeddings: 
 Actualizar los chunks y embeddings (Ejecutar cuando se han cargado nuevos archivos en docs/) 
 
 ```bash 
 .\update_embeddings.bat
 ```
 
-## Arranque Directo: 
+## Arranque Total: 
 
 ```bash 
 .\run_rag_pipeline.bat

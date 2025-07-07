@@ -2,12 +2,18 @@
 Contiene la clase encargada de la extraccion del texto en crudo de cada documento
 
 """
+
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),  "..")))
 import os 
 from pathlib import Path
 import pdfplumber 
 import docx
 from colorama import Fore as Fr
 import json
+from utils.Logger import Logger
+
 
 class TextExtractor: 
 
@@ -94,9 +100,11 @@ def extract_all_documents(directory: str = "docs") -> list[dict]:
                 extractor = TextExtractor(path)
                 chunks = extractor.extract()
                 all_chunks.extend(chunks)
-
         except Exception as e: 
-            print(f"[Error] al obtener todos los chunks de {path.resolve()}: {e}")
+            Logger.error(f"[Error] al obtener todos los chunks de {path.resolve()}: {e}")
+
+    msg = f"Se han extraido un total de {len(os.listdir(directory))}"
+    Logger.info(msg)
 
     return all_chunks
         

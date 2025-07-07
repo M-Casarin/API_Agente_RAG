@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 echo ==========================================
-echo         AGENTE RAG IP - EXECUTION SCRIPT
+echo        Agente RAG LLM - EXECUTION SCRIPT
 echo ==========================================
 echo.
 
@@ -15,6 +15,7 @@ set STEPS=^
 
 for %%S in (%STEPS%) do (
     for /f "tokens=1,2 delims=:" %%A in ("%%S") do (
+        echo "====================== |°| ======================"
         echo [%%A/5] Ejecutando %%B...
         echo Comando: uv run python %%B
         uv run python %%B
@@ -31,7 +32,7 @@ for %%S in (%STEPS%) do (
 )
 
 echo ==========================================
-echo      ✓ PIPELINE COMPLETADO EXITOSAMENTE
+echo      ✓  PROCESO COMPLETADO  EXITOSAMENTE
 echo ==========================================
 echo.
 echo Presiona cualquier tecla para cerrar...
